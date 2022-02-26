@@ -1,0 +1,1 @@
+"doesn't work", "broke", "stopped working", "phone", "computer", "wifi", "data", "connection"

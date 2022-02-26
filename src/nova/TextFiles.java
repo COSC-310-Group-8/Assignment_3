@@ -1,17 +1,24 @@
 package nova;
 
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 public class TextFiles {
-	ArrayList<String> keywords = new ArrayList<String>();
 	ArrayList<String> responses = new ArrayList<String>();
 	
-	public void read(String[] text) {
-		
+	public ArrayList<String> read() {
+		ArrayList<String> keywords = new ArrayList<String>();
+		DataInputStream din = new DataInputStream(new FileInputStream("keywords.txt"));
+		Scanner s = new Scanner(din);
+		while (s.hasNext()){
+		    keywords.add(s.next());
+		}
+		s.close();
+		return keywords;
 	}
 	
-	public String[] write() {
-		return null;
+	public void write() {
+		
 	}
 	
 	public String getKeyword() {
