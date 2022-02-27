@@ -5,22 +5,39 @@ import java.io.*;
 
 public class TextFiles {
 	ArrayList<String> responses = new ArrayList<String>();
+	ArrayList<String> keywords = new ArrayList<String>();
+	String temp;
 	
-	public ArrayList<String> read() {
-		ArrayList<String> keywords = new ArrayList<String>();
-		DataInputStream din = null;
+	public void readKeywords(String[] text, String fileName) throws IOException {
 		try {
-			din = new DataInputStream(new FileInputStream("keywords.txt"));
+			ObjectInputStream input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)));
+			boolean EOF = false;
+			while (!EOF) { // Reads file while the end of the file has not been reached
+				try {
+					if (fileName.equals("keywords.txt")) { 			// Checks which text file is being read
+						temp = input.readUTF(); 					// Reads string to temp
+						String[] tempArray = temp.split("|");		// Separates string by '|' into tempArray
+						for (String element : tempArray) {
+							keywords.add(element); 					// Adds all keywords into keywords ArrayList
+						}
+					} else if (fileName.equals("responses.txt")) { 	// Checks which text file is being read
+						temp = input.readUTF(); 					// Reads string to temp
+						String[] tempArray = temp.split("|"); 		// Separates string by '|' into tempArray
+						for (String element : tempArray) {
+							responses.add(element); 				// Adds all responses into responses ArrayList
+						}
+					} else {
+						System.out.println("Unknown file selected");
+					}
+				} catch (EOFException e) {
+					EOF = true;
+				}
+			}
+			input.close();
+
 		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
+			System.out.println("File Not Found");
 		}
-		Scanner s = new Scanner(din);
-		while (s.hasNext()){
-		    keywords.add(s.next());
-		}
-		s.close();
-		return keywords;
 	}
 	
 	public void write() {
