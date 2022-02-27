@@ -4,31 +4,22 @@ import java.util.*;
 import java.io.*;
 
 public class TextFiles {
-	ArrayList<String> responses = new ArrayList<String>();
-	ArrayList<String> keywords = new ArrayList<String>();
-	String temp;
+	String fileName;
+	ArrayList<String> text = new ArrayList<String>();
 	
-	public void readKeywords(String[] text, String fileName) throws IOException {
+	TextFiles(String fileName) throws IOException {
+		this.fileName = fileName;
 		try {
-			ObjectInputStream input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)));
+			
+			DataInputStream input = new DataInputStream(new FileInputStream(fileName));
 			boolean EOF = false;
 			while (!EOF) { // Reads file while the end of the file has not been reached
 				try {
-					if (fileName.equals("keywords.txt")) { 			// Checks which text file is being read
-						temp = input.readUTF(); 					// Reads string to temp
-						String[] tempArray = temp.split("|");		// Separates string by '|' into tempArray
-						for (String element : tempArray) {
-							keywords.add(element); 					// Adds all keywords into keywords ArrayList
-						}
-					} else if (fileName.equals("responses.txt")) { 	// Checks which text file is being read
-						temp = input.readUTF(); 					// Reads string to temp
+					String temp = input.readUTF();				 	// Reads string to temp
 						String[] tempArray = temp.split("|"); 		// Separates string by '|' into tempArray
-						for (String element : tempArray) {
-							responses.add(element); 				// Adds all responses into responses ArrayList
+						for (String element : tempArray) {			
+							text.add(element); 						// Adds all strings into ArrayList
 						}
-					} else {
-						System.out.println("Unknown file selected");
-					}
 				} catch (EOFException e) {
 					EOF = true;
 				}
@@ -67,13 +58,8 @@ public class TextFiles {
 		
 	}
 	
-	public String getKeyword() {
-		
-		
+	public ArrayList<String> getText() {
 		return null;
 	}
 	
-	public String getResponse() {
-		return null;
-	}
 }
