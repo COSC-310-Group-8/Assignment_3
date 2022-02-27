@@ -1,4 +1,4 @@
-Welcome, I’m your virtual assistant! Using a word or a short sentence, please describe what I can help you with today. You may also enter “Menu” or “Hello” to get started.
+Welcome, I am your virtual assistant! Using a word or a short sentence, please describe what I can help you with today. You may also enter "Menu" or "Hello" to get started.
 ;
 What brings you here today?
 ;
@@ -9,7 +9,7 @@ What can I help you with:
 (2) Sales
 (3) Talk to a representative
 ;
-What kind of support are you looking for today?
+What kind of support are you looking for today? 
 (1) Change Password
 (2) Upgrade Plan
 (3) Cancel Plan

@@ -15,17 +15,19 @@ public class TextFiles {
 			
 			
 			BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
-			// Reads file while the end of the file has not been reached
+			String temp;
+				// Reads file while the end of the file has not been reached
 				
-					String temp = input.readLine();			 	// Reads string to temp
-					
+				while((temp = input.readLine()) != null) {
+			
 					if(temp != null) {
-						String[] tempArray = temp.split(";"); 
+						String[] tempArray = temp.split(";",0); 
 						
 						for (int i = 0; i < tempArray.length; i++) {
 							text.add(tempArray[i]);
 						}
 					}
+				}
 				input.close();
 
 		} catch (FileNotFoundException e) {
