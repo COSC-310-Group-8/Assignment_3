@@ -7,27 +7,30 @@ public class TextFiles {
 	String fileName;
 	ArrayList<String> text = new ArrayList<String>();
 	
+	
 	TextFiles(String fileName) throws IOException {
+		text.add("hello");
 		this.fileName = fileName;
 		try {
 			
-			DataInputStream input = new DataInputStream(new FileInputStream(fileName));
-			boolean EOF = false;
-			while (!EOF) { // Reads file while the end of the file has not been reached
-				try {
-					String temp = input.readUTF();				 	// Reads string to temp
-						String[] tempArray = temp.split("|"); 		// Separates string by '|' into tempArray
-						for (String element : tempArray) {			
-							text.add(element); 						// Adds all strings into ArrayList
+			
+			BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+			// Reads file while the end of the file has not been reached
+				
+					String temp = input.readLine();			 	// Reads string to temp
+					
+					if(temp != null) {
+						String[] tempArray = temp.split(";"); 
+						
+						for (int i = 0; i < tempArray.length; i++) {
+							text.add(tempArray[i]);
 						}
-				} catch (EOFException e) {
-					EOF = true;
-				}
-			}
-			input.close();
+					}
+				input.close();
 
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
+			e.printStackTrace();
 		}
 	}
 	
@@ -55,11 +58,11 @@ public class TextFiles {
 		      e.printStackTrace();
 		    }
 		 
-		
+		 
 	}
 	
 	public ArrayList<String> getText() {
-		return null;
+		return this.text;
 	}
 	
 }

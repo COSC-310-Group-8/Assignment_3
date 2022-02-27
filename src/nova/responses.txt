@@ -1,35 +1,35 @@
 Welcome, I’m your virtual assistant! Using a word or a short sentence, please describe what I can help you with today. You may also enter “Menu” or “Hello” to get started.
-|
+;
 What brings you here today?
-|
+;
 I don't seem to understand. To view a list of commands enter "Menu".
-|
+;
 What can I help you with:
 (1) Product Support
 (2) Sales
 (3) Talk to a representative
-|
+;
 What kind of support are you looking for today?
 (1) Change Password
 (2) Upgrade Plan
 (3) Cancel Plan
-|
+;
 What kind of questions do you have today?
 (1) Product Features
 (2) Product Trials
 (3) Product Prices
 (4) Plan Details
-|
+;
 To speak with a representative please call 1800-555-NOVA.
-|
+;
 I'm sorry, the input you have entered appears to be invalid. Please try again:
-|
+;
 To change your password, I will first require your current username and a previously used password:
-|
+;
 So, you want to upgrade your plan! Please select one:
 (1) View Available Plans
 (2) Upgrade Immediately
-|
+;
 Product Features:
 BRONZE PLAN
 	- Unlimited National Calling
@@ -55,9 +55,9 @@ PLATINUM PLAN
 	- 10GB/month of shareable data (hotspot capability included)
 	- +$10.00/month for international data
 	- $75/month
-|
+;
 If you sign-up now, you may have 30 day free access to the Silver plan! Would you like to start the trail (yes/no)?
-|
+;
 Prices:
 BRONZE PLAN ---> $30/month
 SILVER PLAN ---> $40/month
@@ -65,5 +65,5 @@ GOLD PLAN -----> $60/month
 PLATINUM PLAN -> $75/month
 
 TO UPGRADE ----> Current plan value + (upgrade value * 0.8) --> (ex. GOLD to PLATINUM = $60 + ($15 * 0.8) = $72/month)
-|
+;
  
