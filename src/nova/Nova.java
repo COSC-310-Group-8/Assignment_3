@@ -7,6 +7,8 @@ public class Nova {
 
 	public static void main(String[] args) throws IOException {
 		
+		new ChatBot();
+		
 		TextFiles responsesText = new TextFiles("direct path"); //use direct file path
 		
 		System.out.println("output responses " + responsesText.getText());
