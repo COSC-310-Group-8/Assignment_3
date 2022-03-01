@@ -10,7 +10,7 @@ public void setKeyword(String s) {
 
 public String getResponse(String s) {
 	if(s.equals("mad")) {
-		return "I am sorry you are feeling " + Keyword +" would you like to talk about it more? "; 
+		return "I am sorry you are feeling " + Keyword +", would you like to talk about it more? "; 
 	}
 	
 	return null;
@@ -27,6 +27,10 @@ return greeting;
 public String getConfort()
 {
 	return "it is good you are opening up about this" ; 
+}
+
+public String getQuote() {
+	return null; 
 }
 
 
