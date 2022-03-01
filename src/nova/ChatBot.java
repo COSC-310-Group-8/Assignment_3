@@ -59,7 +59,9 @@ public class ChatBot extends JFrame {
 
 				chatOutput.append("You: " + userInput + "\n");
 				
-				chatBotResponse(user.getEmotions());
+				if(user.getEmotions()!= null){
+						chatBotResponse(user.getEmotions());
+				}
 				
 				if (userInput.contains("menu")) {
 					chatBotResponse("What can I help you with:\n" 
