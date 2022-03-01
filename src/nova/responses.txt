@@ -21,6 +21,7 @@ What kind of questions do you have today?
 (4) Plan Details
 ;
 To speak with a representative please call 1800-555-NOVA.
+Alternatively, enter "Menu" to view commands.
 ;
 I'm sorry, the input you have entered appears to be invalid. Please try again:
 ;
