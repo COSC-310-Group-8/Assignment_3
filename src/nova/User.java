@@ -41,7 +41,7 @@ public class User{
 	}
 
 	public void FindEmotion(String userresponse) 
-{
+	{
 	String Response [] = userresponse.split(" ");
 
 	try 
@@ -79,6 +79,6 @@ public class User{
 		System.out.println("File was not found");
 	}
 	
-}
+	}
 	
 }
