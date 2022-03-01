@@ -114,7 +114,7 @@ public class ChatBot extends JFrame {
 							+ "product has been lost and/or damaged\n" 
 							+ "needs a new plan");
 
-				} else if (userInput.contains("Speak to rep") || userInput.contains("talk to a representative")) {
+				} else if (userInput.contains("Speak to rep") || userInput.contains("representative")) {
 					chatBotResponse("To speak with a representative please call 1800-555-NOVA.");
 				
 				} else if (userInput.contains("damaged") || userInput.contains("lost")) {

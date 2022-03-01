@@ -39,6 +39,10 @@ public class User{
 		this.setRating = setRating;
 	}
 
+	
+	public void setEmotions() {
+		userEmotion = null;
+	}
 	public String getEmotions(){
 		return userEmotion ; 
 	}
