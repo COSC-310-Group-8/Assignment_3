@@ -9,9 +9,9 @@ public class Nova {
 		
 		new ChatBot();
 		
-		TextFiles responsesText = new TextFiles("direct path"); //use direct file path
+		//TextFiles responsesText = new TextFiles("direct path"); //use direct file path
 		
-		System.out.println("output responses " + responsesText.getText());
+		//System.out.println("output responses " + responsesText.getText());
 		//TextFiles keywordsText = new TextFiles("keywords.txt");
 		//ArrayList<String> keywords = keywordsText.getText();
 		

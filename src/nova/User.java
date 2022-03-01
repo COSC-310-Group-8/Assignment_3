@@ -1,5 +1,8 @@
 package nova;
 
+import java.io.*;
+import java.util.*;
+
 public class User{
 	
 	String userResponse;
@@ -47,7 +50,7 @@ public class User{
 	try 
 	{
 		// this get the file emotions text file //
-		File emt = new File("emotions.txt");
+		File emt = new File("C:/Users/spike/Assignment_2/src/nova/emotions.txt");
 		
 		// this creates a scanner to be bale to read the text file //
 		Scanner reader = new Scanner(emt);
