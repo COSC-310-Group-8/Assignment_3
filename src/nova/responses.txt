@@ -1,4 +1,4 @@
-Welcome, I am your virtual assistant! Using a word or a short sentence, please describe what I can help you with today. You may also enter "Menu" or "Hello" to get started.
+Welcome, I am your virtual assistant! Using a word or a short sentence, please describe what I can help you with today. You may also enter "Menu" or "Hello" at anytime to get started.
 ;
 What brings you here today?
 ;
