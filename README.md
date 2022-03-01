@@ -34,7 +34,7 @@ COSC-310 Group 8's repository
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Java ChatBot that is designed to be simple and easy to use. ChatBot can offer solutions to customers, ask for feedback and record customer dialogues.
+The NOVA chat-bot is designed to be a call-center agent for customers of a telecommunication company. The chat-bot will enable interaction for product satisfaction, complaints, and reviews. The chat-bot also is capable of recognizing customer temperament to adjust responses.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
