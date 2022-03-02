@@ -1,8 +1,8 @@
-import java.io.File;
+import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class NovaBot extends Main   {
 String response;
@@ -20,7 +20,7 @@ public String getResponse(String s) {
 	if(s.equals("mad")) {
 		File mad = new File("mad_responses.txt");
 		String madArray[] = createFile(mad); 
-		response= chooseRandom(madArray);
+		response = chooseRandom(madArray);
 		
 	}else if(s.equals("sad")) {
 		
@@ -44,9 +44,9 @@ public String getResponse(String s) {
 
 public String getGreeting() 
 {
-greeting = "NOVA: Hi, I am Nova your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
+	greeting = "NOVA: Hi, I am Nova your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
 
-return greeting;
+	return greeting;
 
 }
 
@@ -54,16 +54,13 @@ return greeting;
 
 public String getComfort()
 {
-		File comfortfile = new File("comforting_phrases.txt");
-		String comfortarray[] = createFile(comfortfile); 
-		comfort= chooseRandom(comfortarray);
-	
+	File comfortfile = new File("comforting_phrases.txt");
+	String comfortarray[] = createFile(comfortfile); 
+	comfort= chooseRandom(comfortarray);
 	return "NOVA: "+ comfort ; 
 }
 
 public String getQuote(String s) {
-	
-	
 	
 	if(s.equals("mad")) {
 		File madQuote = new File("AngerQuotes.txt");
