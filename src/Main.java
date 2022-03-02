@@ -42,12 +42,7 @@ public class Main extends Userfeelings {
 				} else {
 
 					System.out.println("NOVA: That's okay! I want you to feel comfortable.\n" + n1.getComfort()/*
-																												 * + n1.
-																												 * getQuote
-																												 * (p1.
-																												 * getEmotion
-																												 * ())
-																												 */);
+																								 */);
 				}
 
 				System.out.println("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
