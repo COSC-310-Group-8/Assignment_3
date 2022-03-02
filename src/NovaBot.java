@@ -11,11 +11,6 @@ String quote ;
 String comfort;
 String help;
 
-
-
-
-
-
 public String getResponse(String s) {
 	if(s.equals("mad")) {
 		File mad = new File("mad_responses.txt");
@@ -40,35 +35,25 @@ public String getResponse(String s) {
 	return "NOVA: " + response;
 }
 
-
-
-public String getGreeting() 
-{
+public String getGreeting() {
 	greeting = "NOVA: Hi, I am Nova your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
-
 	return greeting;
-
 }
 
-
-
-public String getComfort()
-{
+public String getComfort() {
 	File comfortfile = new File("comforting_phrases.txt");
 	String comfortarray[] = createFile(comfortfile); 
 	comfort= chooseRandom(comfortarray);
-	return "NOVA: "+ comfort ; 
+	return "NOVA: " + comfort ; 
 }
 
-public String getQuote(String s) {
-	
+public String getQuote(String s) {	
 	if(s.equals("mad")) {
 		File madQuote = new File("AngerQuotes.txt");
 		String[] madQuoteArray = createFile(madQuote); 
 		quote= chooseRandom(madQuoteArray);
 		
 	}else if(s.equals("sad")) {
-		
 		File sadQuote = new File("SadnessQuotes.txt");
 		String[] sadQuoteArray = createFile(sadQuote); 
 		quote= chooseRandom(sadQuoteArray);
@@ -76,10 +61,8 @@ public String getQuote(String s) {
 	}else if(s.equals("happy")) {
 		File happyQuote = new File("HappinessQuotes.txt");
 		String[] happyQuoteArray = createFile(happyQuote); 
-		quote = chooseRandom(happyQuoteArray);
-		
+		quote = chooseRandom(happyQuoteArray);	
 	}
-	
 	return "NOVA: " + quote; 
 }
 
@@ -125,38 +108,30 @@ public String helpOptions() {
 
 
 public String chooseRandom(String[] s) {
-	
 	int length = s.length; 
 	int ran =(int) Math.floor(Math.random()*length);
-	return s[ran]; 
-	
+	return s[ran]; 	
 }
 
 
 
-public String[] createFile(File f)
-{
+public String[] createFile(File f) {
 	String[] keyWords ;
-
 	try {
+		Scanner reader = new Scanner(f);
 	
-	Scanner reader = new Scanner(f);
+		// Creates an Array List //
+		List<String> lines = new ArrayList<String>();
 	
-	// Creates an Array List //
-	List<String> lines = new ArrayList<String>();
-	
-	// Puts the text File into The Array List //
-	while (reader.hasNextLine()) {
-	  lines.add(reader.nextLine());
-	}
-	// Puts the Array list into a simple Array // 
-	keyWords = lines.toArray(new String[0]);
-
-	reader.close();
-	
-	return keyWords; 
-	
-	}catch(FileNotFoundException e) {
+		// Puts the text File into The Array List //
+		while (reader.hasNextLine()) {
+	  		lines.add(reader.nextLine());
+		}
+		// Puts the Array list into a simple Array // 
+		keyWords = lines.toArray(new String[0]);
+		reader.close();	
+		return keyWords; 
+	} catch(FileNotFoundException e) {
 		System.out.println("File was not found!!!!");
 		return null; 
 	}
