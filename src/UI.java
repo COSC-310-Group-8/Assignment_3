@@ -24,10 +24,8 @@ JTextArea textArea ;
 		RChat = new JLabel (); 
 		
 		textArea = new JTextArea(5, 20);
-        textArea.setEditable(false);
+       		textArea.setEditable(false);
   
-       
-        
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(700,600);
@@ -42,18 +40,13 @@ JTextArea textArea ;
 		panel1.setPreferredSize(new Dimension(100,100));
 		panel3.setPreferredSize(new Dimension(50,50));
 	
-		 JScrollPane scroller = new JScrollPane();
+		JScrollPane scroller = new JScrollPane();
 	
 		compName = new JLabel() ;
 		compName.setText("<html><h1>" + " NOVA HELP CENTER"+"</h1></html>");
 		panel1.add(compName);
 		panel3.add(text);
-		
-		
-		
-		
-	
-		    
+	    
 	////-----------------------------------------------------
 		    
 		  
@@ -64,26 +57,19 @@ JTextArea textArea ;
 		textArea.setBounds(10, 10, 50, 50);
 		panel3.add(Enter); 
 		frame.add(textArea);
-		 panel2.add(scroller, BorderLayout.CENTER);
+		panel2.add(scroller, BorderLayout.CENTER);
 		
-		//-----------------------------------------------------------// 
+	//-----------------------------------------------------------// 
 		
-		
-		
-       
-		// action listener if the user presses enter //
+	// action listener if the user presses enter //
 		text.addActionListener(new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent event) {
-		        System.out.println("The entered text is: " + text.getText());
-		 
-		        String  hello = text.getText(); 
-		        textArea.append(hello + "\n");
-		        System.out.println(tester);
-		       
-		    }
-		    
-		    
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("The entered text is: " + text.getText()); 
+		        	String  hello = text.getText(); 
+		        	textArea.append(hello + "\n");
+		       		System.out.println(tester);		       
+			}    
 		});
 		
 		// action listener if the user presses the enter button // 
