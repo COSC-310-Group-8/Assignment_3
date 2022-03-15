@@ -23,27 +23,27 @@ public class UserDiagnosis {
 		File biP = new File("filePathway");
 
 
-		depressesKeywords = createFile(dep);
+		depressedKeywords = createFile(dep);
 		anxiousKeywords = createFile(anx);
 		biPolarKeywords = createFile(biP);
 
 		for (int i = 0; i < sent.length; i++){
 			for (int p = 0; p < depressedKeywords.length; p++){
-				if (sent[I].equalsIgnoreCase(depressedKeywords[p])){
+				if (sent[i].equalsIgnoreCase(depressedKeywords[p])){
 					diagnosis = "depressed";
 					keyword = sent[i];
 					break;
 				}
 			}
 			for (int p = 0; p < anxiousKeywords.length; p++){
-				if (sent[I].equalsIgnoreCase(anxiousKeywords[p])){
+				if (sent[i].equalsIgnoreCase(anxiousKeywords[p])){
 					diagnosis = "anxious";
 					keyword = sent[i];
 					break;
 				}
 			}
 			for (int p = 0; p < biPolarKeywords.length; p++){
-				if (sent[I].equalsIgnoreCase(biPolarKeywords[p])){
+				if (sent[i].equalsIgnoreCase(biPolarKeywords[p])){
 					diagnosis = "biPolar";
 					keyword = sent[i];
 					break;
@@ -54,7 +54,6 @@ public class UserDiagnosis {
 	
 	public String[] createFile(File f) {
 		String[] keywords;
-		try{
 			Scanner scan = new Scanner(System.in);
 			List<String> lines = new ArrayList<String>();
 			while (scan.hasNextLine()) {
@@ -62,9 +61,5 @@ public class UserDiagnosis {
 			}
 			keywords = lines.toArray(new String[0]);
 			return keywords;
-		} catch (FileNotFoundException e) {
-			System.out.println("File was not found.");
-			return null;
-		}
 	}
 } //end of class

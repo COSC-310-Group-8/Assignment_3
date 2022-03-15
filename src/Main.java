@@ -96,7 +96,7 @@ public class Main extends Userfeelings {
 		while (!doneRating) {
 			cont1 = sc.nextLine();
 			if (cont1.equalsIgnoreCase("yes")) {
-				n1.getRating();
+				NovaBot.getRating();
 				doneRating = true;
 			} else if (cont1.equalsIgnoreCase("no")) {
 				System.out.println("That's okay! We only ask for feedback to improve NOVA.");
