@@ -60,6 +60,7 @@ public class UserDiagnosis {
 				lines.add(scan.nextLine());
 			}
 			keywords = lines.toArray(new String[0]);
+			scan.close();
 			return keywords;
 	}
 } //end of class
