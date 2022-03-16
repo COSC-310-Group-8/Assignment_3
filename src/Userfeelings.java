@@ -1,8 +1,6 @@
 import java.io.*;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.*;
+
 
 public class Userfeelings {
 
@@ -21,7 +19,7 @@ public String getKeyword() {
 	return keyword; 
 }
 
-public void findEmotion(String sent[]) {
+public void findEmotion(String[] sent) {
 	// this get the file anger text file //
 	File ang = new File("anger.txt");
 	File sad = new File("sad.txt");
@@ -75,12 +73,14 @@ public String[] createFile(File f) {
 		}
 		// Puts the Array list into a simple Array // 
 		keyWords = lines.toArray(new String[0]);
+
+		reader.close();
 	
 		return keyWords; 
 	
 	} catch(FileNotFoundException e) {
 		System.out.println("File was not found!!!!");
-		return null; 
+		return new String[0]; 
 	}
 }
 
