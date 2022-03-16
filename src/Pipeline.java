@@ -1,4 +1,4 @@
-package nova;
+
 
 import edu.stanford.nlp.*;
 import java.util.Properties;
