@@ -7,8 +7,8 @@ import java.io.File;
 	import java.net.URL;
 
 	import edu.mit.jwi.*;
-
-	import edu.mit.jwi.item.IIndexWord;
+import edu.mit.jwi.item.IHasPOS;
+import edu.mit.jwi.item.IIndexWord;
 
 	import edu.mit.jwi.item.ILexFile;
 
@@ -40,27 +40,48 @@ public class WordNetTest {
 
 	dict.open();
 
-	Scanner in=new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 
-	System.out.println("Enter the word");
+	System.out.println("Enter the word: ");
 
-	String t=in.nextLine();
+	String t = sc.nextLine();
+	
+	IIndexWord idxWord = dict.getIndexWord(t, POS.NOUN);
+    try {
+        int x = idxWord.getTagSenseCount();
+        for (int i = 0; i < x; i++) {
+            IWordID wordID = idxWord.getWordIDs().get(i);
+            IWord word = dict.getWord(wordID);
+            POS pos = word.getPOS();
+            // Adding Related Words to List of Related Words
+            ISynset synset = word.getSynset();
+            for (IWord w : synset.getWords()) {
+                System.out.println(w.getLemma());
+                // output.add(w.getLemma());
+            }
+        }
+    } catch (Exception ex) {
+        System.out.println("No synonym found!");
+    }
 
-	// look up first sense of the word “dog ”
-
-	IIndexWord idxWord = dict.getIndexWord (t, POS.NOUN );
-
-	IWordID wordID = idxWord.getWordIDs().get(0) ;
-
-	IWord word = dict.getWord (wordID);
-
-	System.out.println("Id = " + wordID);
-
-	System.out.println(" Lemma = " + word.getLemma());
-
-	System.out.println(" Gloss = " + word.getSynset().getGloss());
-	Synonyms s1 = new Synonyms();
-	s1.getSynonyms(dict);
+//	IIndexWord idxWord = dict.getIndexWord (t, POS.NOUN );
+//
+//	IWordID wordID = idxWord.getWordIDs().get(0) ;
+//
+//	IWord word = dict.getWord (wordID);
+//	
+//	ISynset synset = word.getSynset();
+//	// iterate over words associated with the synset
+//	
+//	for(IWord w :synset.getWords()) {
+//	System.out.println(w.getLemma());
+//	}
+//
+//	System.out.println("Id = " + wordID);
+//
+//	System.out.println(" Lemma = " + word.getLemma());
+//
+//	System.out.println(" Gloss = " + synset.getGloss());
 	
 	}
 	
