@@ -1,0 +1,38 @@
+
+import java.util.List;
+
+import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.CoreSentence;
+import edu.stanford.nlp.pipeline.*;
+
+public class NovaSentiments {
+		
+	public static void main(String[] args) {
+		
+		NovaBot n1 = new NovaBot();
+		
+		System.out.println(n1.getGreeting());
+		
+		StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+
+		String text = "Hello. I am having a bad day.";
+		
+		CoreDocument coreDocument = new CoreDocument(text);
+		
+		//annotating core docu with coreNLP
+		stanfordCoreNLP.annotate(coreDocument);
+		
+		//change docu to sentences 
+		List<CoreSentence> getSentence = coreDocument.sentences();
+		
+		//loop to go to sentences and get sentiment (very positive, positive,neutral, negative, very negative)
+		for(CoreSentence sentence : getSentence ) {
+		
+			String sentiment = sentence.sentiment();
+			
+			System.out.println(sentiment + " " + sentence);
+		}
+	}
+
+
+}
