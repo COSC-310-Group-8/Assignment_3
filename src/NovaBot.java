@@ -36,7 +36,7 @@ public String getResponse(String s) {
 }
 
 public String getGreeting() {
-	greeting = "NOVA: Hi, I am Nova your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
+	greeting = "NOVA: Hi, I am NOVA your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
 	return greeting;
 }
 
@@ -100,13 +100,13 @@ public static void getRating(){
 
 public String helpOptions() {
 	File supportOptions = new File("support.txt");
-	String supportArray[] = createFile(supportOptions);
+	String[] supportArray = createFile(supportOptions);
 	help = chooseRandom(supportArray);
 	return help;
 }
 
 
-
+//chooses a random response
 public String chooseRandom(String[] s) {
 	int length = s.length; 
 	int ran =(int) Math.floor(Math.random()*length);

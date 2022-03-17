@@ -20,7 +20,7 @@ public class Dialogue extends Userfeelings {
 					String[] words = userInput.split(" ");
 					p1.findEmotion(words);
 					System.out.println(n1.getResponse(p1.getEmotion()));
-					System.out.println("NOVA: Would look like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
+					System.out.println("NOVA: Would you like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
 					cont1 = sc.nextLine();
 					cont1.toLowerCase();
 					if (cont1.contains("yes")) {
@@ -28,7 +28,7 @@ public class Dialogue extends Userfeelings {
 
 						while (true) {
 							place = sc.nextLine();
-							System.out.println(n1.getComfort() + "\n" /*+ n1.getResponse(p1.getEmotion()) + "\n"*/
+							System.out.println(n1.getComfort() + "\n" + n1.getResponse(p1.getEmotion()) + "\n"
 									+ "NOVA: Would you like to continue? (yes/no)");
 							cont2 = sc.nextLine();
 							cont2.toLowerCase();
@@ -52,11 +52,10 @@ public class Dialogue extends Userfeelings {
 					if (cont1.contains("yes")) {
 						System.out.println("NOVA: Okay Im here to listen :) " + "\n"
 								+ "What other emotions are you feeling? (mad, sad, happy, etc.)");
-					} else {
-
+					} else if (cont1.contains("no")){
+						System.out.println("NOVA: Okay, that is fine. I only want to support you with things you are comfortable opening up about.");
 						break;
-
-					}
+					} 
 				} catch (NullPointerException e) {
 					System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
 				} catch (IndexOutOfBoundsException i) {
@@ -65,7 +64,7 @@ public class Dialogue extends Userfeelings {
 
 			} // end of first while loop
 
-			System.out.println("NOVA: I am happy you are able to open up to me like this :) ");
+			System.out.println("NOVA: I am happy you were able to open up to me like this :) ");
 
 			// if user is sad this will be the line if choice
 			System.out.println("NOVA: If you would like I can suggest some options to help you (yes/no)");

@@ -12,9 +12,11 @@ public class Synonyms {
 
 	public List<String> getSynonyms(String word) 
 	{
+		//load wordnet
 		RiWordNet wordnet;
 	    wordnet = new RiWordNet("./dict");
 	    String[] poss = wordnet.getPos(word);
+	    //loops through all synonyms
 	    for (int j = 0; j < poss.length; j++) {
 	        allSynonyms = wordnet.getAllSynonyms(word,poss[0]);
 	        synonyms = Arrays.asList(allSynonyms);

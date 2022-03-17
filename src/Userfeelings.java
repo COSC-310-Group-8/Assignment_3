@@ -56,7 +56,7 @@ public void findEmotion(String[] sent) {
 			
 		for(String synonym: happySynonyms) {
 			if(sent[i].equalsIgnoreCase(synonym) || sent[i].equalsIgnoreCase("happy")) 	{
-				// If There is a match then it will say that the user is angry //
+				// If There is a match then it will say that the user is happy //
 				userEmotion = "happy" ;
 				keyword = sent[i];
 				break;
@@ -64,7 +64,7 @@ public void findEmotion(String[] sent) {
 		}
 		for (int p = 0; p < happyKeyWords.length; p++) {
 			if (sent[i].equalsIgnoreCase(happyKeyWords[p])) {
-				// If There is a match then it will say that the user is angry //
+				// If There is a match then it will say that the user is happy //
 				userEmotion = "happy" ;
 				keyword = sent[i];
 				break;
@@ -74,7 +74,7 @@ public void findEmotion(String[] sent) {
 		
 		for(String synonym: sadSynonyms) {
 			if(sent[i].equalsIgnoreCase(synonym) || sent[i].equalsIgnoreCase("sad")) {
-				// If There is a match then it will say that the user is angry //
+				// If There is a match then it will say that the user is sad //
 				userEmotion = "sad" ;
 				keyword = sent[i];
 				break;
@@ -83,7 +83,7 @@ public void findEmotion(String[] sent) {
 		
 		for (int p = 0; p < sadKeyWords.length; p++) {
 			if (sent[i].equalsIgnoreCase(sadKeyWords[p])) {
-				// If There is a match then it will say that the user is angry //
+				// If There is a match then it will say that the user is sad //
 				userEmotion = "sad" ;
 				keyword = sent[i];
 				break;
