@@ -36,8 +36,6 @@ public void findEmotion(String[] sent) {
 	angerSynonyms = s.getSynonyms("mad");
 	happySynonyms = s.getSynonyms("happy");
 	sadSynonyms = s.getSynonyms("sad");
-	List<String> list = Arrays.asList(sent);
-	List<String> synonyms = new ArrayList<String>();
 	for (int i = 0; i < sent.length; i++) {
 		for(String synonym: angerSynonyms) {
 			if(sent[i].equalsIgnoreCase(synonym)) {
