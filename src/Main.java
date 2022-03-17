@@ -63,6 +63,8 @@ public class Main extends Userfeelings {
 				}
 			} catch (NullPointerException e) {
 				System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
+			} catch (IndexOutOfBoundsException i) {
+				System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
 			}
 
 		} // end of first while loop
