@@ -20,8 +20,10 @@ public class Main extends Userfeelings {
 		while (true) {
 			try {
 				String userInput = sc.nextLine();
-				String[] words = userInput.split(" ");
-				p1.findEmotion(words);
+				
+				POSTagger tw = new POSTagger(userInput); //creates an array of "Adjectives" taken from userInput
+				
+				p1.findEmotion(tw.getTaggedWords()); //tw.getTaggedWords returns an array of "Adjectives"
 				System.out.println(n1.getResponse(p1.getEmotion()));
 				System.out.println("NOVA: Would look like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
 				cont1 = sc.nextLine();
