@@ -28,8 +28,40 @@ public String getResponse(String s) {
 		String happyArray[] = createFile(happy); 
 		response= chooseRandom(happyArray);
 		
+	} else if (s.equals("fear")) {
+		File fear = new File("fear_responses.txt");
+		String fearArray[] = createFile(fear);
+		response = chooseRandom(fearArray);
 	} else {
 		System.out.println("I'm sorry, I can't understand.");
+	}
+	
+	return "NOVA: " + response;
+}
+
+public String getFollowup(String s) {
+	if(s.equals("mad")) {
+		File mad = new File("mad_followup.txt");
+		String madArray[] = createFile(mad); 
+		response = chooseRandom(madArray);
+		
+	}else if(s.equals("sad")) {
+		
+		File sadRes = new File("sadness_followup.txt");
+		String sadArray[] = createFile(sadRes); 
+		response= chooseRandom(sadArray);
+		
+	}else if(s.equals("happy")) {
+		File happy = new File("happy_followup.txt");
+		String happyArray[] = createFile(happy); 
+		response= chooseRandom(happyArray);
+		
+	} else if (s.equals("fear")) {
+		File fear = new File("fear_followup.txt");
+		String fearArray[] = createFile(fear);
+		response = chooseRandom(fearArray);
+	} else {
+		System.out.println("I'm sorry, I don't understand.");
 	}
 	
 	return "NOVA: " + response;

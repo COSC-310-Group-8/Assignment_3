@@ -28,7 +28,7 @@ public class Dialogue extends Userfeelings {
 
 						while (true) {
 							place = sc.nextLine();
-							System.out.println(n1.getComfort() + "\n" + n1.getResponse(p1.getEmotion()) + "\n"
+							System.out.println(n1.getComfort() + "\n" + n1.getFollowup(p1.getEmotion()) + "\n"
 									+ "NOVA: Would you like to continue? (yes/no)");
 							cont2 = sc.nextLine();
 							cont2.toLowerCase();
