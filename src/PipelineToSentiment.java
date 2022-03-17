@@ -22,22 +22,28 @@ public class PipelineToSentiment {
         pipeline = new StanfordCoreNLP(props);
     }
     
-    //returns and prints out sentiment(positive, negative, neutral) 
-    public static void getSentiment(String text)
+    //returns sentiment(positive, negative, neutral) and sentiment number(positive -->3, negative-->1, neutral-->2) for text inputted.
+
+    public String getSentiment(String text)
     {
     	
-      int sentimentNum;
-      String sentimentName; 
+      int sentimentNum = 0;
+      String sentimentName = null; 
       Annotation annotation = pipeline.process(text);
       
-      //loop to get sentence of passed text
-      for(CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class))
-      {
-         Tree tree = sentence.get(SentimentAnnotatedTree.class);
-        sentimentNum = RNNCoreAnnotations.getPredictedClass(tree); 
-                sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
-        System.out.println(sentimentName + " " + sentimentNum + "\t" + sentence);
-      }
+      //condition to check if text is available and get sentiment of text.
+      if (text != null && text.length() > 0) {
+          CoreMap sentence = annotation
+                    .get(CoreAnnotations.SentencesAnnotation.class).get(0);
+          Tree tree = sentence
+                     .get(SentimentAnnotatedTree.class);
+          sentimentNum = RNNCoreAnnotations.getPredictedClass(tree);
+          sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
+        }
+      		
+      	return sentimentName+" "+sentimentNum;
+      
      }
 
 }
+
