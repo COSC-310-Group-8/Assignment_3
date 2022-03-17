@@ -24,8 +24,10 @@ JTextArea textArea ;
 		RChat = new JLabel (); 
 		
 		textArea = new JTextArea(5, 20);
-       		textArea.setEditable(false);
+        textArea.setEditable(false);
   
+       
+        
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(700,600);
@@ -40,13 +42,19 @@ JTextArea textArea ;
 		panel1.setPreferredSize(new Dimension(100,100));
 		panel3.setPreferredSize(new Dimension(50,50));
 	
-		JScrollPane scroller = new JScrollPane();
+		 JScrollPane scroller = new JScrollPane(textArea);
+		
 	
 		compName = new JLabel() ;
 		compName.setText("<html><h1>" + " NOVA HELP CENTER"+"</h1></html>");
 		panel1.add(compName);
 		panel3.add(text);
-	    
+		
+		
+		
+		
+	
+		    
 	////-----------------------------------------------------
 		    
 		  
@@ -56,20 +64,27 @@ JTextArea textArea ;
 		frame.add(panel2,BorderLayout.CENTER);
 		textArea.setBounds(10, 10, 50, 50);
 		panel3.add(Enter); 
-		frame.add(textArea);
-		panel2.add(scroller, BorderLayout.CENTER);
+		frame.add(scroller);
+	
 		
-	//-----------------------------------------------------------// 
+		//-----------------------------------------------------------// 
 		
-	// action listener if the user presses enter //
+		
+		
+       
+		// action listener if the user presses enter //
 		text.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent event) {
-				System.out.println("The entered text is: " + text.getText()); 
-		        	String  hello = text.getText(); 
-		        	textArea.append(hello + "\n");
-		       		System.out.println(tester);		       
-			}    
+		    @Override
+		    public void actionPerformed(ActionEvent event) {
+		 
+		        String  UserInput = text.getText(); 
+		        textArea.append(UserInput + "\n");
+		        System.out.println(tester);
+		        text.setText("");
+		       
+		    }
+		    
+		    
 		});
 		
 		// action listener if the user presses the enter button // 
@@ -79,11 +94,15 @@ JTextArea textArea ;
 		    @Override
 		    public void actionPerformed(ActionEvent e)
 		    {
-		        System.out.println("The enetered text is " + text.getText());
-		        String  hello = text.getText(); 
-		        textArea.append(hello + "\n");
+		    	
+		        String  UserInput = text.getText(); 
+		        textArea.append(UserInput + "\n");
 		        System.out.println(tester);
+		        text.setText("");
 		    }
+		    
+		    
+		    
 		});
 		
 		

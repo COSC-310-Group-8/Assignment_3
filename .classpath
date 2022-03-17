@@ -23,7 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/imigh/Downloads/edu.mit.jwi_2.4.0_jdk.jar"/>
-	<classpathentry kind="lib" path="C:/Users/imigh/Downloads/commons-logging-1.2-bin.zip"/>
+	<classpathentry kind="lib" path="C:/Users/imigh/Downloads/rita (1)/RiTa/library/rita.jar"/>
+	<classpathentry kind="lib" path="rita.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
