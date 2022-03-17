@@ -99,33 +99,38 @@ public String getQuote(String s) {
 }
 
 public static void getRating(){
-	System.out.println("Enter a rating from 0-5: ");
-	Scanner sc = new Scanner(System.in);
-	int rating = sc.nextInt();
-	switch(rating){
-		case 0:
-			System.out.println("NOVA: I'm sorry I wasn't able to help you today.");
-			break;
-		case 1:
-			System.out.println("NOVA: I'm sorry you were not satisfied with my help.");
-			break;
-		case 2: 
-			System.out.println("NOVA: I'm sorry you were not entirely satisfied with my help.");
-			break;
-		case 3:
-			System.out.println("NOVA: I'm at least glad I was able to make you feel somewhat better.");
-			break;
-		case 4:
-			System.out.println("NOVA: I'm glad I was able to make you feel a bit better!");
-			break;
-		case 5:
-			System.out.println("NOVA: I'm thrilled I was able to help you so much!");
-			break;
-		default:
-			System.out.println("Invalid input!");
-			break;
-	}
-	sc.close();
+	    //creating instance of pipeline for sentiment analysis
+	    PipelineToSentiment.init();
+	    PipelineToSentiment pipelineToSentiment = new PipelineToSentiment();
+
+		System.out.println("Please describe your experience with NovaBot in one sentence:");
+		Scanner sc = new Scanner(System.in);
+		String rating = sc.nextLine();
+		
+		//store positive, neutral and negative responses
+		String[] positiveReply = { "NOVA: I'm thrilled I was able to help you so much!" , "NOVA: I'm glad I was able to make you feel a bit better!"};
+		String[] neutralReply = { "NOVA: I'm at least glad I was able to make you feel somewhat better."};
+		String[] negativeReply = { "NOVA: I'm sorry I wasn't able to help you today." , "NOVA: I'm sorry you were not satisfied with my help."};
+	    
+		String sentiment = null;
+		
+		Random random = new Random();
+		
+		sentiment = pipelineToSentiment.getSentiment(rating);
+		
+	    
+	    //check if rating is positive or neutral or negative
+	    if(sentiment.contentEquals("Positive 3") || sentiment.contentEquals("Very positive 4")) {
+	    	 int idx = random.nextInt(positiveReply.length);
+	    	 System.out.println(positiveReply[idx]);
+	    }else if(sentiment.contentEquals("Neutral 2")) {
+	    	 System.out.println(neutralReply[0]);
+	    }else if(sentiment.contentEquals("Negative 1")|| sentiment.contentEquals("Very negative 0")) {
+	    	 int idx = random.nextInt(negativeReply.length);
+	    	 System.out.println(negativeReply[idx]);
+	    }
+	    
+		sc.close();
 }
 
 
