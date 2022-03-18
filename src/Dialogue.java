@@ -12,7 +12,7 @@ public class Dialogue extends Userfeelings {
 		
 
 			NovaBot n1 = new NovaBot();
-			System.out.println(n1.getGreeting());
+			System.out.println( n1.getGreeting() );
 
 			while (true) {
 				try {
@@ -21,8 +21,7 @@ public class Dialogue extends Userfeelings {
 					p1.findEmotion(words);
 					System.out.println(n1.getResponse(p1.getEmotion()));
 					System.out.println("NOVA: Would you like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
-					cont1 = sc.nextLine();
-					cont1.toLowerCase();
+					cont1 = sc.nextLine().toLowerCase();
 					if (cont1.contains("yes")) {
 						System.out.println("NOVA: Okay, I'm listening");
 
@@ -30,10 +29,9 @@ public class Dialogue extends Userfeelings {
 							place = sc.nextLine();
 							System.out.println(n1.getComfort() + "\n" + n1.getFollowup(p1.getEmotion()) + "\n"
 									+ "NOVA: Would you like to continue? (yes/no)");
-							cont2 = sc.nextLine();
-							cont2.toLowerCase();
+							cont2 = sc.nextLine().toLowerCase();
 							if (cont2.contains("yes")) {
-								System.out.println("NOVA: You can continue");
+								System.out.println("NOVA: Please continue");
 								place = sc.next();
 							} else {
 								System.out.println(n1.getComfort() /* + n1.getQuote(p1.getEmotion())*/);
@@ -66,7 +64,7 @@ public class Dialogue extends Userfeelings {
 			System.out.println("NOVA: I'm happy you feel comfortable opening up to me :) ");
 
 			// if user is sad this will be the line if choice
-			System.out.println("NOVA: If you would like I can suggest some options to help you (yes/no)");
+			System.out.println("NOVA: If you would like, I can suggest some options to help you (yes/no)");
 			boolean doneOptions = false;
 			while (!doneOptions) {
 				cont1 = sc.nextLine();
