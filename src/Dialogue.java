@@ -47,26 +47,23 @@ public class Dialogue extends Userfeelings {
 					}
 
 					System.out.println("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
-					cont1 = sc.nextLine();
-					cont1.toLowerCase();
+					cont1 = sc.nextLine().toLowerCase();
 					
 					if (cont1.contains("yes")) {
-						System.out.println("NOVA: Okay Im here to listen :) " + "\n"
+						System.out.println("NOVA: Okay I'm here to listen :) " + "\n"
 								+ "What other emotions are you feeling? (mad, sad, happy, etc.)");
 					} else if (cont1.contains("no")){
-						System.out.println("NOVA: Okay, that is fine. I only want to support you with things you are comfortable opening up about.");
+						System.out.println("NOVA: Okay, that's fine. Your comfort is my number one priority.");
 						break;
 					} 
 					
-				} catch (NullPointerException e) {
-					System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
-				} catch (IndexOutOfBoundsException i) {
+				} catch (Exception e) {
 					System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
 				}
 
 			} // end of first while loop
 
-			System.out.println("NOVA: I am happy you were able to open up to me like this :) ");
+			System.out.println("NOVA: I'm happy you feel comfortable opening up to me :) ");
 
 			// if user is sad this will be the line if choice
 			System.out.println("NOVA: If you would like I can suggest some options to help you (yes/no)");
