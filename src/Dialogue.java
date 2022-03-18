@@ -5,7 +5,7 @@ public class Dialogue extends Userfeelings {
 			
 			
 			Scanner sc = new Scanner(System.in);
-			String cont1 = "yes";
+			String cont1 = "Yes";
 			String cont2 = "No";
 			String place = " ";
 			Userfeelings p1 = new Userfeelings();
@@ -49,6 +49,7 @@ public class Dialogue extends Userfeelings {
 					System.out.println("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
 					cont1 = sc.nextLine();
 					cont1.toLowerCase();
+					
 					if (cont1.contains("yes")) {
 						System.out.println("NOVA: Okay Im here to listen :) " + "\n"
 								+ "What other emotions are you feeling? (mad, sad, happy, etc.)");
@@ -56,6 +57,7 @@ public class Dialogue extends Userfeelings {
 						System.out.println("NOVA: Okay, that is fine. I only want to support you with things you are comfortable opening up about.");
 						break;
 					} 
+					
 				} catch (NullPointerException e) {
 					System.out.println("NOVA: I'm sorry, I don't understand. Please try again.");
 				} catch (IndexOutOfBoundsException i) {
@@ -93,7 +95,7 @@ public class Dialogue extends Userfeelings {
 			}
 			boolean doneRating = false;
 			System.out.println(
-					"NOVA: I am glad you are able to talk to me about your emotions :). I am always here if you need me");
+					"NOVA: I'm glad you're able to open up to me about your emotions :). I am always here if you need me");
 			System.out.println("NOVA: Would you give me a rating on how I did today? (yes/no) ");
 			while (!doneRating) {
 				cont1 = sc.nextLine();
