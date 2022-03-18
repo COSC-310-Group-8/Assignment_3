@@ -32,6 +32,16 @@ public String getResponse(String s) {
 		File fear = new File("fear_responses.txt");
 		String fearArray[] = createFile(fear);
 		response = chooseRandom(fearArray);
+	} else if (s.equals("depressed")) {
+		response = "You should seek professional help for your depression";
+	} else if (s.equals("suicidal")) {
+		response = "You should seek professional help. Please contact your local suicide hotline.";
+	}  else if (s.equals("bipolar")) {
+		response = "You should seek professional help for your bipolar condition.";
+	} else if (s.equals("sick")) {
+		response = "I'm sorry, I cannot help you if you feel ill. Please consult a doctor.";
+	} else if (s.equals("disgusted")) {
+		response = "Sorry, I cannot help you manage your digust. ";
 	} else {
 		System.out.println("I'm sorry, I can't understand.");
 	}

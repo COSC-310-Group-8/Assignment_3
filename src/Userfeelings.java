@@ -44,6 +44,28 @@ public void findEmotion(String[] sent) {
 	sadSynonyms = s.getSynonyms("sad");
 	fearSynonyms = s.getSynonyms("fear");
 	for (int i = 0; i < sent.length; i++) {
+		if (sent[i].equalsIgnoreCase("depressed")) {
+			userEmotion = "depressed";
+			keyword = sent[i];
+			break;
+		} else if (sent[i].equalsIgnoreCase("bipolar")) {
+			userEmotion = "bipolar";
+			keyword = sent[i];
+			break;
+		} else if (sent[i].equalsIgnoreCase("sick") || sent[i].equalsIgnoreCase("ill")) {
+			userEmotion = "sick";
+			keyword = sent[i];
+			break;
+		} else if (sent[i].equalsIgnoreCase("disgusted")) {
+			userEmotion = "disgusted";
+			keyword = sent[i];
+			break;
+		} else if (sent[i].equalsIgnoreCase("suicidal")) {
+			userEmotion = "suicidal";
+			keyword = sent[i];
+			break;
+		}
+		
 		for(String synonym: angerSynonyms) {
 			if(sent[i].equalsIgnoreCase(synonym)) {
 				// If There is a match then it will say that the user is angry //
