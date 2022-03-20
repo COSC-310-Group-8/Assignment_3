@@ -23,7 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/imigh/Downloads/external jars/rita.jar"/>
+	<classpathentry kind="lib" path="C:/Users/imigh/Downloads/rita (1)/RiTa/library/rita.jar"/>
 	<classpathentry kind="lib" path="rita.jar"/>
 	<classpathentry kind="lib" path="ejml-core-0.39.jar"/>
 	<classpathentry kind="lib" path="ejml-core-0.39-sources.jar"/>

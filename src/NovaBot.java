@@ -32,6 +32,7 @@ public String getResponse(String s) {
 		File fear = new File("fear_responses.txt");
 		String fearArray[] = createFile(fear);
 		response = chooseRandom(fearArray);
+		//5 responses for 5 topics the bot isn't prepared for
 	} else if (s.equals("depressed")) {
 		response = "You should seek professional help for your depression.";
 	} else if (s.equals("suicidal")) {
@@ -50,6 +51,7 @@ public String getResponse(String s) {
 }
 
 public String getFollowup(String s) {
+	//followup responses to given emotion
 	if(s.equals("mad")) {
 		File mad = new File("mad_followup.txt");
 		String madArray[] = createFile(mad); 
@@ -78,7 +80,7 @@ public String getFollowup(String s) {
 }
 
 public String getGreeting() {
-	greeting = "NOVA: Hi, I am NOVA your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today?";
+	greeting = "NOVA: Hi, I am NOVA your personal emotional support bot :)" + "\n" + "NOVA: How are you feeling today? (mad, sad, happy, scared, etc.)";
 	return greeting;
 }
 
@@ -113,9 +115,9 @@ public static void getRating(){
 	    PipelineToSentiment.init();
 	    PipelineToSentiment pipelineToSentiment = new PipelineToSentiment();
 
-		System.out.println("Please describe your experience with NovaBot in one sentence:");
+//		ui.setTextArea("Please describe your experience with NovaBot in one sentence:");
 		Scanner sc = new Scanner(System.in);
-		String rating = sc.nextLine();
+		String rating = UI.input;
 		
 		//store positive, neutral and negative responses
 		String[] positiveReply = { "NOVA: I'm thrilled I was able to help you so much!" , "NOVA: I'm glad I was able to make you feel a bit better!"};
@@ -132,12 +134,12 @@ public static void getRating(){
 	    //check if rating is positive or neutral or negative
 	    if(sentiment.contentEquals("Positive 3") || sentiment.contentEquals("Very positive 4")) {
 	    	 int idx = random.nextInt(positiveReply.length);
-	    	 System.out.println(positiveReply[idx]);
+	    	 ui.setTextArea(positiveReply[idx]);
 	    }else if(sentiment.contentEquals("Neutral 2")) {
-	    	 System.out.println(neutralReply[0]);
+	    	ui.setTextArea(neutralReply[0]);
 	    }else if(sentiment.contentEquals("Negative 1")|| sentiment.contentEquals("Very negative 0")) {
 	    	 int idx = random.nextInt(negativeReply.length);
-	    	 System.out.println(negativeReply[idx]);
+	    	 ui.setTextArea(negativeReply[idx]);
 	    }
 	    
 		sc.close();

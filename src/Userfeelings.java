@@ -44,6 +44,7 @@ public void findEmotion(String[] sent) {
 	sadSynonyms = s.getSynonyms("sad");
 	fearSynonyms = s.getSynonyms("fear");
 	for (int i = 0; i < sent.length; i++) {
+		//checks for certain topics not prepared for
 		if (sent[i].equalsIgnoreCase("depressed")) {
 			userEmotion = "depressed";
 			keyword = sent[i];

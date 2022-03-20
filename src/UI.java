@@ -15,7 +15,6 @@ public class UI extends Main {
 	StringBuilder tester;
 	JTextArea textArea;
 	static String input = "";
-
 	boolean chat1 = true;
 	boolean chat2 = false;
 	boolean chat3 = false;
@@ -43,14 +42,14 @@ public class UI extends Main {
 		JPanel panel1 = new JPanel(); // creating 3 panels to separate the screen into three sections
 		JPanel panel2 = new JPanel();
 		JPanel panel3 = new JPanel();
-		panel1.setBackground(Color.yellow.brighter()); // color for each panel -- top
+		panel1.setBackground(new Color(3, 148, 252)); // color for each panel -- top
 		panel2.setBackground(Color.white); // -- middle
-		panel3.setBackground(Color.yellow.brighter()); // -- bottom
+		panel3.setBackground(new Color(3, 148, 252)); // -- bottom
 		panel1.setPreferredSize(new Dimension(100, 100));// top panel size
 		panel3.setPreferredSize(new Dimension(50, 50)); // bottom panel size
 		JScrollPane scroller = new JScrollPane(textArea);// gives us a scroll wheel
 		compName = new JLabel(); // company name object
-		compName.setText("<html><h1>" + " NOVA THERAPY CENTER" + "</h1></html>"); // company name title
+		compName.setText("<html><h1>" + " NOVA EMOTIONAL SUPPORT" + "</h1></html>"); // company name title
 		panel1.add(compName); // add name to panel
 		panel3.add(text); // add area to type to panel
 
@@ -152,17 +151,34 @@ public class UI extends Main {
 
 //NOVA BOT CHAT --------------------------------------------------------------------------------------------------------------------
 //THIS WILL DECIDED WHAT CHAT THE NOVA BOT WILL SAY!
+	
+	
 	public void chat1() {
+		try {
 		chat1 = false;
-		String[] words = input.split(" ");
-		p1.findEmotion(words);
+		
+		
+		POSTagger tw = new POSTagger(input); //creates an array of "Adjectives" taken from userInput
+		p1.findEmotion(tw.getTaggedWords()); //tw.getTaggedWords returns an array of "Adjectives"
 		ui.setTextArea(n1.getResponse(p1.getEmotion()));
+		if (p1.getEmotion().equals("suicidal") || p1.getEmotion().equals("disgusted") || p1.getEmotion().equals("bipolar") || p1.getEmotion().equals("sick") || p1.getEmotion().equals("depressed")){
+			ui.setTextArea("NOVA: Sorry, I cannot help you talk through this issue. Please try talking to me about an emotion: ");
+			chat1 = true;
+			return;
+		}
 		ui.setTextArea("NOVA: Would look like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
 		chat2 = true;
+		} catch (Exception e ) {
+			ui.setTextArea("I'm sorry, I don't understand, please try again: ");
+			chat1=true;
+		}
 
 	}
+	
+	
 
 	public void chat2() {
+	try {
 		input.toLowerCase();
 		chat2 = false;
 		if (input.contains("yes")) {
@@ -178,35 +194,42 @@ public class UI extends Main {
 			ui.setTextArea("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
 			chat6 = true;
 
-		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
-			ui.setTextArea("NOVA: Would look like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
-			chat2 = true;
-		}
+		} 
+	} catch (Exception e ) {
+		ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+		chat2=true;
+	}
 
 	}
+	
 
 	public void chat3() {
 		chat3 = false;
-		ui.setTextArea(n1.getComfort() + "\n" /* + n1.getResponse(p1.getEmotion()) + "\n" */
+		ui.setTextArea(n1.getComfort() + "\n" + n1.getFollowup(p1.getEmotion()) + "\n"
 				+ "NOVA: Would you like to continue? (yes/no)");
 		chat4 = true;
 
 	}
 
 	public void chat4() {
+		try {
 		chat4 = false;
 		input.toLowerCase();
 		if (input.contains("yes")) {
-			ui.setTextArea("NOVA: You can continue");
+			ui.setTextArea("NOVA: Please continue :) I am all ears");
 			chat3 = true;
 
 		} else if (input.contains("no")) {
-			ui.setTextArea(n1.getComfort() /* + n1.getQuote(p1.getEmotion()) */);
+			ui.setTextArea(n1.getComfort() );
 			ui.setTextArea("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
 			chat6 = true;
 		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+			ui.setTextArea("NOVA: Would you like to continue? (yes/no)");
+			chat4 = true;
+		}
+		} catch (Exception e ) {
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
 			ui.setTextArea("NOVA: Would you like to continue? (yes/no)");
 			chat4 = true;
 		}
@@ -219,11 +242,12 @@ public class UI extends Main {
 	}
 
 	public void chat6() {
+		try {
 		chat6 = false;
 		input.toLowerCase();
 		if (input.contains("yes")) {
 			ui.setTextArea("NOVA: Okay Im here to listen :) " + "\n"
-					+ "What other emotions are you feeling? (mad, sad, happy, etc.)");
+					+ "NOVA: What other emotions are you feeling? (mad, sad, happy, scared, etc.)");
 			chat1 = true;
 		} else if (input.contains("no")) {
 			ui.setTextArea("NOVA: I am happy you are able to open up to me like this :) " + "\n");
@@ -231,13 +255,18 @@ public class UI extends Main {
 			ui.setTextArea("NOVA: If you would like I can suggest some options to help you (yes/no)");
 			chat7 = true;
 		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
-			ui.setTextArea("NOVA: Is there another emotion you would like to talk about?(yes/no) ");
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+			ui.setTextArea("NOVA: Would you like to continue? (yes/no)");
 			chat6 = true;
+		}
+		} catch (Exception e ) {
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+			chat5 = true;
 		}
 	}
 
 	public void chat7() {
+		try {
 		chat7 = false;
 		input.toLowerCase();
 		if (input.contains("yes")) {
@@ -252,14 +281,21 @@ public class UI extends Main {
 			ui.setTextArea("NOVA: Would you give me a rating on how I did today? (yes/no)  ");
 			chat9 = true;
 		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
 			ui.setTextArea("NOVA: If you would like I can suggest some options to help you (yes/no)");
 			chat7 = true;
 		}
+	} catch (Exception e) {
+		ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+		ui.setTextArea("NOVA: If you would like I can suggest some options to help you (yes/no)");
+		chat7 = true;
+	}
+		
 
 	}
 
 	public void chat8() {
+		try {
 		chat8 = false;
 		input.toLowerCase();
 		if (input.contains("yes")) {
@@ -274,25 +310,33 @@ public class UI extends Main {
 			ui.setTextArea("NOVA: Would you give me a rating on how I did today? (yes/no) ");
 			chat9 = true;
 		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
+			ui.setTextArea("NOVA: I dont undertand can you please repeat? ");
 			ui.setTextArea("NOVA: Would you like another helpful tip? (yes/no)");
 			chat8 = true;
+		}
+		}catch (Exception e) {
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
+			chat7 = true;
 		}
 	}
 
 	public void chat9() {
+		try {
 		chat9 = false;
 		input.toLowerCase();
 		if (input.contains("yes")) {
-			ui.setTextArea("Alright what do you give me out of 5?");
+			ui.setTextArea("NOVA: Describe your experience with NOVA in one sentence: ");
 			chat12 = true;
 		} else if (input.contains("no")) {
-			ui.setTextArea("That's okay! We only ask for feedback to improve NOVA.");
-			ui.setTextArea("Thank you for using NOVA! Goodbye.");
+			ui.setTextArea("NOVA: That's okay! We only ask for feedback to improve NOVA.");
+			ui.setTextArea("NOVA: Thank you for using NOVA! Goodbye.");
 			chat10 = true;
 		} else {
-			ui.setTextArea("NOVA: I dont undertand can you please reapeat? ");
-			ui.setTextArea("NOVA: Would you give me a rating out of 5 on how I did today? (yes/no) ");
+			ui.setTextArea("NOVA: I don't understand, please try again: ");
+			chat9 = true;
+		}
+		} catch (Exception e) {
+			ui.setTextArea("NOVA: I'm sorry, I don't understand. Please try again: ");
 			chat9 = true;
 		}
 	}
@@ -304,9 +348,8 @@ public class UI extends Main {
 
 	public void chat12() {
 		chat12 = false;
-
-		// n1.getRating(input);
-		ui.setTextArea("Thank you for using NOVA! Goodbye.");
+		NovaBot.getRating();
+		ui.setTextArea("NOVA: Thank you for using NOVA! Goodbye.");
 		chat10 = true;
 
 	}
