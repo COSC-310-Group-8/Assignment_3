@@ -169,7 +169,7 @@ public class UI extends Main {
 		ui.setTextArea("NOVA: Would look like to expand on feeling " + p1.getKeyword() + "? (yes/no)");
 		chat2 = true;
 		} catch (Exception e ) {
-			ui.setTextArea("I'm sorry, I don't understand, please try again: ");
+			ui.setTextArea("NOVA: I'm sorry, I don't understand, please try again: ");
 			chat1=true;
 		}
 
