@@ -42,7 +42,7 @@ public void findEmotion(String[] sent) {
 	angerSynonyms = s.getSynonyms("mad");
 	happySynonyms = s.getSynonyms("happy");
 	sadSynonyms = s.getSynonyms("sad");
-	fearSynonyms = s.getSynonyms("fear");
+	fearSynonyms = s.getSynonyms("scared");
 	for (int i = 0; i < sent.length; i++) {
 		//checks for certain topics not prepared for
 		if (sent[i].equalsIgnoreCase("depressed")) {
