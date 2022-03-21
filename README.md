@@ -81,11 +81,17 @@ To get a local copy up and running on your local device. You must have the Java 
 ## New Features
 
 We have added a new emotion for the user to talk to NOVA about: fear. This encapsulates anxiety and if the user is feeling scared about something. Fear is one of the 6 primary emotions felt by people so we think it is a good addition to our agent's repitoire. 
+
 In addtion, we have split the canned responses of NOVA into intial and followup responses for each emotion. This gives a more authentic feel to the conversation and makes the responses seem more in line with when the user initially says what emotion they're feeling and then when they expand on it.
+
 Furthermore, the use of the WordNet toolkit (through RiTa API) generates the synonyms for the emotions, and these are cross-referenced with the preset text files to see if the user has said an emotion using a synonym or similar word to simply mad, happy, sad, or fear. 
+
 We implemented a Sentiment Analysis Toolkit from Stanford that checks if the user's feedback is positive, negative, or neutral based on a sentence. Initially, we used a number rating but the use of this toolkit allows for a more genuine review of our program and makes the bot feel more intelligent. 
+
 We also used another toolkit from Stanford, a POS Tagger, that extracts the adjective from the user input, and this is used to check the adjective for an emotion. Thsi increases the efficiency of the program by using a prebuilt library and then we only have to check the adjective for an emotion.
+
 In addition, we have planned for 5 unexpected topics the user may wish to talk about that our program is not ready to handle. These are if the user says they are feeling depressed, suicidal, bipolar, physically ill, or disgusted. These topics all have a predetermined response and will prompt the user to say something within the scope of the program. Checking for these topics improves our program because it is reasonable to believe that the user may respond to the bot's prompt of "How are you feeling?" with one of these topics, so it is important to plan for them and ask them to try again. 
+
 Finally, we have implemented a GUI for the program using JSwing. This is a much needed addition to the program because it gives the chat a more visual appearance. The blue color for the chatbox was chosen to soothe the user while talking with the bot. This is a big improvement to the original project as it looks and feels more like an actual chat is going on. 
 
 
