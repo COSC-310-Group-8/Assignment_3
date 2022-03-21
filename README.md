@@ -72,7 +72,7 @@ Nova-ChatBot is able to hold a conversation of over 30 dialogues in order to tal
 
 ## Installation Guide
 
-To get a local copy up and running on your local device. You must have the Java Development Kit installed. Once you have that done you can simply pull the code and compile/run it in your local IDE. Use standard output to interact with NOVA-ChatBot.
+To get a local copy up and running on your local device. You must have the Java Development Kit installed. Due to the size limit on GitHub, we are unable to upload a certain jar and the exectuable JAR file for NOVA. Here is the link to a zip folder of the completed project, which contains the runnable JAR and the necessary JARS for the toolkits to make the program run: 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
