@@ -1,0 +1,12 @@
+For our testing we used JUnit to create three test cases for major functions of our program.
+
+NovaBotTest: Tests the getResponse() and getFollowup() methods to see if they return the write response given the emotion. 
+We also did this for one of the unexpected topics ("depressed"). In addition, we have a test method for getGreeting(). 
+The tests for getResponse and getFollowup use another method to check if the response or followup returned is what it should be given a certain emotion.
+The tests for getResponse(for an expected topic) and getGreeting simply check if the methods output what they are supposed to.
+
+POSTaggerTest: This test case checks if the POSTagger is correctly extracting the adjectives from a sample sentence.
+
+UserfeelingsTest: This test case checks if the findEmotion() method in Userfeelings is correctly identifying the emotion given a sentence. It uses the POS tagger to
+extract the adjectives from a sentence and checks if the findEmotion() method can correctly set what emotion it is. 
+
