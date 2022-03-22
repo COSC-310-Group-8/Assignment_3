@@ -8,8 +8,8 @@ Userfeelings uf = new Userfeelings();
 	@Test // Fail
 	void testGetEmotion() {
 	String sent = "I am Very mad";
-	String sent1 [] = sent.split(" ");
-		uf.findEmotion(sent1);	
+	POSTagger tw = new POSTagger(sent);
+		uf.findEmotion(tw.getTaggedWords());	
 		
 		assertEquals("sad", uf.getEmotion());
 		
@@ -18,8 +18,8 @@ Userfeelings uf = new Userfeelings();
 void testGetEmotion1() {
 	
 	String sent = "I am Very mad";
-	String sent1 [] = sent.split(" ");
-		uf.findEmotion(sent1);	
+	POSTagger tw = new POSTagger(sent);
+	uf.findEmotion(tw.getTaggedWords());
 		
 		assertEquals("mad", uf.getEmotion());
 		
